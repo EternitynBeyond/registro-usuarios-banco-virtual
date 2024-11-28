@@ -1,8 +1,11 @@
-const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
+
+app.use(cors({
+    origin: 'https://registro-usuarios-banco-virtual.netlify.app', 
+    methods: 'GET,POST',
+}));
 
 app.use(express.json());
 

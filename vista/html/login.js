@@ -4,7 +4,6 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    
     const data = {
         email: email,
         password: password
@@ -12,7 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     try {
         
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch('https://registro-usuarios-banco-virtual.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
