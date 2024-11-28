@@ -21,7 +21,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         if (response.ok) {
             const data = await response.json(); 
             console.log('Login successful:', data);
-            alert('Login successful!');
+            alert('Inicio de sesión exitoso');
         } else {
             const data = await response.json(); 
             alert('Error: ' + data.message); 
