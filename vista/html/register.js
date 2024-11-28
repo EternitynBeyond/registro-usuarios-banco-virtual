@@ -5,26 +5,37 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    console.log('Form data:', { username, email, password }); 
+    console.log('Form data:', { username, email, password });
 
-    
-    fetch('https://registro-usuarios-banco-virtual.onrender.com', {
+    fetch('https://registro-usuarios-banco-virtual.onrender.com/register', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json', 
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, email, password }) 
+        body: JSON.stringify({ username, email, password })
     })
     .then(response => {
-        console.log('Response status:', response.status);
-        return response.json();
+        // Check if the response is okay
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+       
+        return response.text() 
+            .then(text => {
+                try {
+                    return JSON.parse(text);
+                } catch (error) {
+                    throw new Error('Invalid JSON response: ' + text);
+                }
+            });
     })
     .then(data => {
         console.log('Response data:', data);
         if (data.message) {
             alert(data.message); 
         } else {
-            alert("Error registering user!"); 
+            alert("Error registering user!");
         }
     })
     .catch(error => {
