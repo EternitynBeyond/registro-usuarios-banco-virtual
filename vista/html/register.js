@@ -2,7 +2,7 @@
 document.getElementById('registerForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Get form data values
+    
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -32,12 +32,12 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         if (data.message) {
             alert(data.message); 
         } else {
-            alert("Error registering user!"); 
+            alert("Error registrando usuario"); 
         }
     })
     .catch(error => {
         
         console.error('Error:', error);
-        alert('There was a problem with the registration.'); // Show error message
+        alert('Hubo un problema con el registro');
     });
 });
