@@ -1,34 +1,34 @@
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
-    event.preventDefault();
+    event.preventDefault(); 
 
+    // Get form data values
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    const data = {
-        email: email,
-        password: password
-    };
+    console.log('Form data:', { email, password });
 
+    
     try {
-        
-        const response = await fetch('https://registro-usuarios-banco-virtual.onrender.com', {
-            method: 'POST',
+        const response = await fetch('https://registro-usuarios-banco-virtual.onrender.com/login', {
+            method: 'POST', 
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ email, password }) 
         });
 
-        const result = await response.json();
-
+        
         if (response.ok) {
+            const data = await response.json(); 
+            console.log('Login successful:', data);
             alert('Login successful!');
-            console.log(result);
         } else {
-            alert('Error: ' + result.message);
+            const data = await response.json(); 
+            alert('Error: ' + data.message); 
         }
     } catch (error) {
+        
+        console.error('Error:', error);
         alert('There was a problem with the login.');
-        console.error(error);
     }
 });
