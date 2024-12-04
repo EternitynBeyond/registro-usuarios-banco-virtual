@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión - Banco Virtual Aburrae</title>
     <link rel="stylesheet" href="/vista/css/login.css">
-    <link rel="shortcut icon" href="/vista/imagenes/Icon/Banco Digital Aburrae Favicon.ico">
+    <link rel="shortcut icon" href="/vista/imagenes/Icon/Banco Digital Aburrae Favicon.ico">    
 </head>
 <body>
-    <div class="form-container">
+    <header>
+        <nav>
+            <a href="/index.html">Volver a inicio</a>
+        </nav>
+    </header>
+    <main class="form-container">
         <h2>Iniciar Sesión</h2>
         <form id="loginForm">
             <input type="email" id="email" placeholder="Correo Electrónico" required><br>
@@ -16,7 +21,18 @@
             <button type="submit">Iniciar sesión</button>
         </form>
         <p>¿No tienes cuenta? <a href="register.html">Regístrate</a></p>
-    </div>
+    </main>
+    <footer>
+        <h3>Contacto</h3>
+        <p><strong>WhatsApp: </strong>304 443 0545</p>
+        <p><strong>Correo electrónico: </strong>
+            <a href="mailto:bancoaburrae@gmail.com">bancoaburrae@gmail.com</a>
+        </p>
+        <br>
+        <p id="footer_copyright">
+            &copy;2024 Banco Virtual Aburrae, desarrolladores Holman, Lecnel y Mario. Todos los derechos reservados.
+        </p>
+    </footer>
     <script src="login.js"></script>
 </body>
 </html>

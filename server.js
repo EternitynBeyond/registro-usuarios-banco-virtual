@@ -13,22 +13,22 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 app.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
     if (!username || !email || !password) {
-        return res.status(400).json({ message: 'All fields are required!' });
+        return res.status(400).json({ message: 'Se requiere llenar todos los campos!' });
     }
     const { data, error } = await supabase.from('users').insert([{ username, email, password }]);
     if (error) {
-        return res.status(500).json({ message: 'Error registering user', error: error.message });
+        return res.status(500).json({ message: 'Error registrando usuario', error: error.message });
     }
-    res.status(201).json({ message: 'User registered successfully!', user: data });
+    res.status(201).json({ message: 'Usuario registrado correctamente!', user: data });
 });
 
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const { data, error } = await supabase.from('users').select('*').eq('email', email).eq('password', password);
     if (error || !data.length) {
-        return res.status(401).json({ message: 'Invalid credentials!' });
+        return res.status(401).json({ message: 'Credenciales invalidas!' });
     }
-    res.status(200).json({ message: 'Login successful!', user: data[0] });
+    res.status(200).json({ message: 'Inicio de sesión exitoso!', user: data[0] });
 });
 
 const PORT = process.env.PORT || 3000;

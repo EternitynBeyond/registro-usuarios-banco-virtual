@@ -16,7 +16,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error(`Network response was not ok. Status: ${response.status}`);
+            throw new Error(`Respuesta de la red no fue correcta. Estado: ${response.status}`);
         }
         return response.json(); 
     })
