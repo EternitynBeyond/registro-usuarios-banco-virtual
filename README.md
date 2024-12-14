@@ -15,3 +15,5 @@ Use la opción "¿Ya tienes una cuenta? "Iniciar sesión".
 Debe recibir un aviso de que fue un inicio de sesión exitoso. Lo que confirma que su usuario esta en el sistema.
 
 Gracias por usar la página de registro del Banco Virtual Aburrae
+
+Realizado por Mario Castro, Holman Galindo y Lecnel Fermin
